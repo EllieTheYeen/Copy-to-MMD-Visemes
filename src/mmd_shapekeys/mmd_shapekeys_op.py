@@ -8,15 +8,6 @@ from .copy_as_mmd_settings import CopyAsMMDSettings
 
 log = logging.getLogger(__name__)
 
-# Keep all lowercase
-VISEMES = {
-    "ah": "あ",
-    "ch": "い",
-    "u": "う",
-    "e": "え",
-    "oh": "お",
-}
-
 MMD_SHAPEKEYS = {
     "blink happy": "笑い",
     "blink": "まばたき",
@@ -61,11 +52,11 @@ class DuplicateVisemeAsMmdShapekey(bpy.types.Operator):
         settings: CopyAsMMDSettings = obj.CopyAsMMDSettings
         shapekeys: Dict = obj.data.shape_keys.key_blocks
 
-        copy_shapekey(shapekeys.get(settings.ah), VISEMES['ah'])
-        copy_shapekey(shapekeys.get(settings.ch), VISEMES['ch'])
-        copy_shapekey(shapekeys.get(settings.u), VISEMES['u'])
-        copy_shapekey(shapekeys.get(settings.e), VISEMES['e'])
-        copy_shapekey(shapekeys.get(settings.oh), VISEMES['oh'])
+        copy_shapekey(shapekeys.get(settings.ah), 'Ah')
+        copy_shapekey(shapekeys.get(settings.ch), 'Ch')
+        copy_shapekey(shapekeys.get(settings.u), 'U')
+        copy_shapekey(shapekeys.get(settings.e), 'E')
+        copy_shapekey(shapekeys.get(settings.oh), 'Oh')
 
         # Text Separator Shapekey
         bpy.ops.object.shape_key_add(from_mix=False)
